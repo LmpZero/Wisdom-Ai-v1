@@ -1,9 +1,10 @@
-import { Cross, Flower2, Sword } from "lucide-react";
+import { Flower2, Sword } from "lucide-react";
 import { useState } from "react";
 import FloatingIcon from "./FloatingIcon";
 import SearchBar from "./SearchBar";
 import { useToast } from "@/hooks/use-toast";
 import islamIcon from "@/assets/islam-icon.png";
+import christianIcon from "@/assets/christian-icon.png";
 
 const HeroSection = () => {
   const { toast } = useToast();
@@ -20,7 +21,7 @@ const HeroSection = () => {
 
   // Array of icons for easy replacement - see ICON_REPLACEMENT_GUIDE.md
   const deityIcons = [
-    { Icon: Cross, label: "Christianity", name: "Christianity" },
+    { Icon: christianIcon, label: "Christianity", name: "Christianity", isImage: true },
     { Icon: islamIcon, label: "Islam", name: "Islam", isImage: true },
     { Icon: Flower2, label: "Hinduism", name: "Hinduism" },
     { Icon: Sword, label: "Sikhism", name: "Sikhism" },
