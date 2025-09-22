@@ -1,4 +1,4 @@
-import { Code, PenTool, Brain, Wand2 } from "lucide-react";
+import { Cross, Moon, Flower2, Sword } from "lucide-react";
 import { useState } from "react";
 import FloatingIcon from "./FloatingIcon";
 import SearchBar from "./SearchBar";
@@ -19,10 +19,10 @@ const HeroSection = () => {
 
   // Array of icons for easy replacement - see ICON_REPLACEMENT_GUIDE.md
   const deityIcons = [
-    { Icon: Code, label: "Divine Code", name: "Divine Code" },
-    { Icon: PenTool, label: "Sacred Pen", name: "Sacred Pen" },
-    { Icon: Brain, label: "Wise Mind", name: "Wise Mind" },
-    { Icon: Wand2, label: "Magic Wand", name: "Magic Wand" },
+    { Icon: Cross, label: "Christianity", name: "Christianity" },
+    { Icon: Moon, label: "Islam", name: "Islam" },
+    { Icon: Flower2, label: "Hinduism", name: "Hinduism" },
+    { Icon: Sword, label: "Sikhism", name: "Sikhism" },
   ];
 
   return (
