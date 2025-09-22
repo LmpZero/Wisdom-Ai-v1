@@ -1,10 +1,11 @@
-import { Flower2, Sword } from "lucide-react";
 import { useState } from "react";
 import FloatingIcon from "./FloatingIcon";
 import SearchBar from "./SearchBar";
 import { useToast } from "@/hooks/use-toast";
 import islamIcon from "@/assets/islam-icon.png";
 import christianIcon from "@/assets/christian-icon.png";
+import hinduismIcon from "@/assets/hinduism-icon.png";
+import sikhismIcon from "@/assets/sikhism-icon.png";
 
 const HeroSection = () => {
   const { toast } = useToast();
@@ -23,8 +24,8 @@ const HeroSection = () => {
   const deityIcons = [
     { Icon: christianIcon, label: "Christianity", name: "Christianity", isImage: true },
     { Icon: islamIcon, label: "Islam", name: "Islam", isImage: true },
-    { Icon: Flower2, label: "Hinduism", name: "Hinduism" },
-    { Icon: Sword, label: "Sikhism", name: "Sikhism" },
+    { Icon: hinduismIcon, label: "Hinduism", name: "Hinduism", isImage: true },
+    { Icon: sikhismIcon, label: "Sikhism", name: "Sikhism", isImage: true },
   ];
 
   return (
