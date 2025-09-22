@@ -35,8 +35,8 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
           alt={label}
           className={`w-8 h-8 transition-all duration-300 ease-in-out ${
             isSelected 
-              ? 'scale-120 filter drop-shadow-glow brightness-125 hue-rotate-[45deg] saturate-150' 
-              : 'opacity-70 hover:opacity-100 hover:scale-110 hover:hue-rotate-[30deg] hover:saturate-125'
+              ? 'scale-120 filter drop-shadow-glow brightness-0 saturate-100 sepia-100 hue-rotate-[45deg] contrast-200' 
+              : 'opacity-70 hover:opacity-100 hover:scale-110 filter brightness-0 saturate-100 invert-[0.5] hover:invert-[0.7]'
           }`} 
         />
       ) : (
