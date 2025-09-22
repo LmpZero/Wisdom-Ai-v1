@@ -1,14 +1,15 @@
 import { LucideIcon } from "lucide-react";
 
 interface FloatingIconProps {
-  Icon: LucideIcon;
+  Icon: LucideIcon | string;
   position: number; // 0-3 for arc positions
   isSelected?: boolean;
   onClick?: () => void;
   label?: string;
+  isImage?: boolean;
 }
 
-const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label }: FloatingIconProps) => {
+const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isImage = false }: FloatingIconProps) => {
   // Define the transform styles for each position to match the exact design
   const transforms = [
     "rotate(-50deg) translateY(-110px) rotate(50deg)", // Position 0
@@ -28,13 +29,25 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label }: Fl
       onClick={onClick}
       title={label}
     >
-      <Icon 
-        className={`w-8 h-8 transition-all duration-300 ease-in-out ${
-          isSelected 
-            ? 'text-divine-gold scale-120 filter drop-shadow-glow' 
-            : 'text-muted-foreground hover:text-foreground hover:scale-110'
-        }`} 
-      />
+      {isImage ? (
+        <img 
+          src={Icon as string}
+          alt={label}
+          className={`w-8 h-8 transition-all duration-300 ease-in-out ${
+            isSelected 
+              ? 'scale-120 filter drop-shadow-glow brightness-125' 
+              : 'opacity-70 hover:opacity-100 hover:scale-110'
+          }`} 
+        />
+      ) : (
+        <Icon 
+          className={`w-8 h-8 transition-all duration-300 ease-in-out ${
+            isSelected 
+              ? 'text-divine-gold scale-120 filter drop-shadow-glow' 
+              : 'text-muted-foreground hover:text-foreground hover:scale-110'
+          }`} 
+        />
+      )}
     </button>
   );
 };
