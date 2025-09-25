@@ -20,8 +20,8 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
 
   return (
     <button
-      className={`absolute flex items-center justify-center p-4 w-20 h-20 rounded-full bg-transparent border-none cursor-pointer transition-all duration-300 ease-in-out hover:scale-110 z-20 ${
-        isSelected ? 'selected' : ''
+      className={`absolute flex items-center justify-center p-4 w-20 h-20 rounded-full bg-transparent border-none cursor-pointer transition-all duration-500 ease-in-out hover:scale-125 hover:rotate-12 z-20 group ${
+        isSelected ? 'selected animate-bounce-subtle' : ''
       }`}
       style={{ 
         transform: transforms[position] || transforms[0]
@@ -33,18 +33,18 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
         <img 
           src={Icon as string}
           alt={label}
-          className={`w-8 h-8 transition-all duration-300 ease-in-out ${
+          className={`w-8 h-8 transition-all duration-500 ease-in-out group-hover:animate-float ${
             isSelected 
-              ? 'scale-120 filter drop-shadow-glow brightness-0 saturate-100 sepia-100 hue-rotate-[45deg] contrast-200' 
-              : 'opacity-70 hover:opacity-100 hover:scale-110 filter brightness-0 saturate-100 invert-[0.5] hover:invert-[0.7]'
+              ? 'scale-120 filter drop-shadow-glow brightness-0 saturate-100 sepia-100 hue-rotate-[45deg] contrast-200 animate-glow' 
+              : 'opacity-70 hover:opacity-100 hover:scale-125 filter brightness-0 saturate-100 invert-[0.5] hover:invert-[0.7] group-hover:drop-shadow-lg'
           }`} 
         />
       ) : (
         <Icon 
-          className={`w-8 h-8 transition-all duration-300 ease-in-out ${
+          className={`w-8 h-8 transition-all duration-500 ease-in-out group-hover:animate-float ${
             isSelected 
-              ? 'text-divine-gold scale-120 filter drop-shadow-glow' 
-              : 'text-muted-foreground hover:text-foreground hover:scale-110'
+              ? 'text-divine-gold scale-120 filter drop-shadow-glow animate-glow' 
+              : 'text-muted-foreground hover:text-foreground hover:scale-125 group-hover:text-accent'
           }`} 
         />
       )}
