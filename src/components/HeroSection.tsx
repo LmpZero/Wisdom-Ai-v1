@@ -54,7 +54,7 @@ const HeroSection = () => {
         ))}
         
         {/* Central Logo */}
-        <div className="w-20 h-20 bg-gradient-divine rounded-2xl flex items-center justify-center shadow-divine animate-glow relative">
+        <div className="w-20 h-20 bg-gradient-divine rounded-2xl flex items-center justify-center shadow-divine animate-glow relative z-30">
           <span className="text-2xl font-bold text-primary-foreground">G</span>
           <div className="absolute inset-0 bg-gradient-divine rounded-2xl animate-rotate-slow opacity-20" />
         </div>
