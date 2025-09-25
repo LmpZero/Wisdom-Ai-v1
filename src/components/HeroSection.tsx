@@ -42,20 +42,15 @@ const HeroSection = () => {
       {/* Floating Icons in Arc Formation */}
       <div className="relative w-full h-40 flex items-center justify-center mb-2 animate-scale-in">
         {deityIcons.map((deity, index) => (
-          <div
+          <FloatingIcon
             key={index}
-            className="animate-slide-up"
-            style={{ animationDelay: `${index * 0.1 + 0.3}s`, animationFillMode: "both" }}
-          >
-            <FloatingIcon
-              Icon={deity.Icon}
-              position={index}
-              isSelected={selectedIcon === index}
-              onClick={() => handleIconClick(deity.name, index)}
-              label={deity.label}
-              isImage={deity.isImage}
-            />
-          </div>
+            Icon={deity.Icon}
+            position={index}
+            isSelected={selectedIcon === index}
+            onClick={() => handleIconClick(deity.name, index)}
+            label={deity.label}
+            isImage={deity.isImage}
+          />
         ))}
         
         {/* Central Logo */}
