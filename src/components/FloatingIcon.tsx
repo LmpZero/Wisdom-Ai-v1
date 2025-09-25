@@ -24,7 +24,10 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
         isSelected ? 'selected animate-bounce-subtle' : ''
       }`}
       style={{ 
-        transform: transforms[position] || transforms[0]
+        transform: transforms[position] || transforms[0],
+        ...(isSelected && {
+          boxShadow: '0 0 30px hsl(45 100% 60% / 0.8), 0 0 60px hsl(45 100% 60% / 0.4)'
+        })
       }}
       onClick={onClick}
       title={label}
@@ -35,17 +38,23 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
           alt={label}
           className={`w-8 h-8 transition-all duration-500 ease-in-out group-hover:animate-float ${
             isSelected 
-              ? 'scale-120 filter drop-shadow-glow brightness-0 saturate-100 sepia-100 hue-rotate-[45deg] contrast-200 animate-glow' 
+              ? 'scale-120 brightness-0 saturate-100 sepia-100 hue-rotate-[45deg] contrast-200 animate-glow' 
               : 'opacity-70 hover:opacity-100 hover:scale-125 filter brightness-0 saturate-100 invert-[0.5] hover:invert-[0.7] group-hover:drop-shadow-lg'
-          }`} 
+          }`}
+          style={isSelected ? {
+            filter: 'brightness(0) saturate(100%) sepia(100%) hue-rotate(45deg) contrast(200%) drop-shadow(0 0 20px hsl(45 100% 60%))'
+          } : undefined}
         />
       ) : (
         <Icon 
           className={`w-8 h-8 transition-all duration-500 ease-in-out group-hover:animate-float ${
             isSelected 
-              ? 'text-divine-gold scale-120 filter drop-shadow-glow animate-glow' 
+              ? 'text-divine-gold scale-120 animate-glow' 
               : 'text-muted-foreground hover:text-foreground hover:scale-125 group-hover:text-accent'
-          }`} 
+          }`}
+          style={isSelected ? {
+            filter: 'drop-shadow(0 0 20px hsl(45 100% 60%))'
+          } : undefined}
         />
       )}
     </button>
