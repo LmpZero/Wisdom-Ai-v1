@@ -20,13 +20,14 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
 
   return (
     <button
-      className={`absolute flex items-center justify-center p-4 w-20 h-20 rounded-full bg-transparent border-none cursor-pointer transition-all duration-500 ease-in-out hover:scale-125 hover:rotate-12 z-20 group ${
-        isSelected ? 'selected animate-bounce-subtle' : ''
+      className={`absolute flex items-center justify-center p-4 w-20 h-20 rounded-full bg-transparent border-none cursor-pointer transition-all duration-700 ease-out z-20 group ${
+        isSelected ? 'selected' : ''
       }`}
       style={{ 
         transform: transforms[position] || transforms[0],
         ...(isSelected && {
-          boxShadow: '0 0 30px hsl(45 100% 60% / 0.8), 0 0 60px hsl(45 100% 60% / 0.4)'
+          boxShadow: '0 0 40px hsl(45 100% 60% / 0.9), 0 0 80px hsl(45 100% 60% / 0.5), 0 0 120px hsl(45 100% 60% / 0.3)',
+          animation: 'divine-pulse 2s ease-in-out infinite'
         })
       }}
       onClick={onClick}
@@ -36,24 +37,27 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
         <img 
           src={Icon as string}
           alt={label}
-          className={`w-8 h-8 transition-all duration-500 ease-in-out group-hover:animate-float ${
+          className={`w-10 h-10 transition-all duration-700 ease-out ${
             isSelected 
-              ? 'scale-120 brightness-0 saturate-100 sepia-100 hue-rotate-[45deg] contrast-200 animate-glow' 
-              : 'opacity-70 hover:opacity-100 hover:scale-125 filter brightness-0 saturate-100 invert-[0.5] hover:invert-[0.7] group-hover:drop-shadow-lg'
+              ? 'scale-125 animate-glow' 
+              : 'opacity-60 scale-90 group-hover:opacity-100 group-hover:scale-110'
           }`}
           style={isSelected ? {
-            filter: 'brightness(0) saturate(100%) sepia(100%) hue-rotate(45deg) contrast(200%) drop-shadow(0 0 20px hsl(45 100% 60%))'
-          } : undefined}
+            filter: 'brightness(0) saturate(100%) sepia(100%) hue-rotate(45deg) contrast(200%) drop-shadow(0 0 25px hsl(45 100% 60%)) drop-shadow(0 0 50px hsl(45 100% 60% / 0.5))'
+          } : {
+            filter: 'brightness(0) saturate(100%) invert(0.5)',
+            transition: 'all 0.7s ease-out'
+          }}
         />
       ) : (
         <Icon 
-          className={`w-8 h-8 transition-all duration-500 ease-in-out group-hover:animate-float ${
+          className={`w-10 h-10 transition-all duration-700 ease-out ${
             isSelected 
-              ? 'text-divine-gold scale-120 animate-glow' 
-              : 'text-muted-foreground hover:text-foreground hover:scale-125 group-hover:text-accent'
+              ? 'text-divine-gold scale-125 animate-glow' 
+              : 'text-muted-foreground scale-90 group-hover:text-foreground group-hover:scale-110'
           }`}
           style={isSelected ? {
-            filter: 'drop-shadow(0 0 20px hsl(45 100% 60%))'
+            filter: 'drop-shadow(0 0 25px hsl(45 100% 60%)) drop-shadow(0 0 50px hsl(45 100% 60% / 0.5))'
           } : undefined}
         />
       )}
