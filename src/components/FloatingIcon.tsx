@@ -26,7 +26,7 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
       style={{ 
         transform: transforms[position] || transforms[0],
         ...(isSelected && {
-          boxShadow: '0 0 30px hsl(0 0% 100% / 0.6), 0 0 50px hsl(0 0% 100% / 0.3)',
+          boxShadow: '0 0 30px hsl(45 100% 60% / 0.6), 0 0 50px hsl(45 100% 60% / 0.3)',
         })
       }}
       onClick={onClick}
@@ -42,7 +42,7 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
               : 'opacity-50 scale-100 group-hover:opacity-90 group-hover:scale-105'
           }`}
           style={isSelected ? {
-            filter: 'brightness(2) saturate(0) drop-shadow(0 0 20px hsl(0 0% 100% / 0.8))',
+            filter: 'brightness(0) saturate(100%) sepia(100%) hue-rotate(20deg) brightness(1.5) drop-shadow(0 0 20px hsl(45 100% 60% / 0.8))',
           } : {
             filter: 'brightness(0) saturate(100%) invert(0.4)',
             transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -56,7 +56,7 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
               : 'text-muted-foreground/50 scale-100 group-hover:text-muted-foreground/90 group-hover:scale-105'
           }`}
           style={isSelected ? {
-            filter: 'drop-shadow(0 0 20px hsl(0 0% 100% / 0.8))'
+            filter: 'drop-shadow(0 0 20px hsl(45 100% 60% / 0.8))'
           } : undefined}
         />
       )}
