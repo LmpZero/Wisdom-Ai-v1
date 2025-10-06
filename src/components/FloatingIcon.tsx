@@ -24,10 +24,7 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
         isSelected ? 'selected' : ''
       }`}
       style={{ 
-        transform: transforms[position] || transforms[0],
-        ...(isSelected && {
-          boxShadow: '0 0 30px hsl(45 100% 60% / 0.6), 0 0 50px hsl(45 100% 60% / 0.3)',
-        })
+        transform: transforms[position] || transforms[0]
       }}
       onClick={onClick}
       title={label}
@@ -42,7 +39,7 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
               : 'opacity-50 scale-100 group-hover:opacity-90 group-hover:scale-105'
           }`}
           style={isSelected ? {
-            filter: 'brightness(0) saturate(100%) sepia(100%) hue-rotate(20deg) brightness(1.5) drop-shadow(0 0 20px hsl(45 100% 60% / 0.8))',
+            filter: 'brightness(0) saturate(100%) sepia(100%) hue-rotate(20deg) brightness(1.8) drop-shadow(0 0 15px hsl(45 100% 60%)) drop-shadow(0 0 30px hsl(45 100% 60% / 0.6))',
           } : {
             filter: 'brightness(0) saturate(100%) invert(0.4)',
             transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -52,11 +49,11 @@ const FloatingIcon = ({ Icon, position, isSelected = false, onClick, label, isIm
         <Icon 
           className={`w-11 h-11 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
             isSelected 
-              ? 'text-foreground scale-110' 
+              ? 'text-divine-gold scale-110' 
               : 'text-muted-foreground/50 scale-100 group-hover:text-muted-foreground/90 group-hover:scale-105'
           }`}
           style={isSelected ? {
-            filter: 'drop-shadow(0 0 20px hsl(45 100% 60% / 0.8))'
+            filter: 'drop-shadow(0 0 15px hsl(45 100% 60%)) drop-shadow(0 0 30px hsl(45 100% 60% / 0.6))'
           } : undefined}
         />
       )}
